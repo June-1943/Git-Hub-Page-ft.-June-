@@ -1,6 +1,6 @@
 body {
     margin:0;
-    background-image:url(images/bluebg.jpg);
+    background-image:url(bluebg.jpg);
 }
 
 div#header {
@@ -114,11 +114,11 @@ span.token-selector{
 }
 
 span.dot{
-    background:url(images/selector_cross.png) no-repeat;
+    background:url(selector_cross.png) no-repeat;
     background-position:center;
 }
 span.cross {
-    background: url(images/selector_dot.png) no-repeat;
+    background: url(selector_dot.png) no-repeat;
     filter:hue-rotate(20deg);
     background-position: center;
 }
