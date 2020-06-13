@@ -74,10 +74,10 @@ function begin(k){
 			var n = Math.floor(Math.random() * l.length);
 			l[n] = opponent;
 			if (opponent=="O"){
-				boxes[n].style.background = "url(images/game_dot.png) no-repeat center";
+				boxes[n].style.background = "url(game_dot.png) no-repeat center";
 			}
 			else{
-				boxes[n].style.background = "url(images/game_cross.png) no-repeat center";
+				boxes[n].style.background = "url(game_cross.png) no-repeat center";
 			}
 		}
 	}
@@ -157,10 +157,10 @@ function playmove(x){
 		}
 		for (var i=0;i<9;i++){
 			if (l[i]=="O"){
-				boxes[i].style.background = "url(images/game_dot.png) no-repeat center";
+				boxes[i].style.background = "url(game_dot.png) no-repeat center";
 			}
 			else if (l[i]=="X"){
-				boxes[i].style.background = "url(images/game_cross.png) no-repeat center";
+				boxes[i].style.background = "url(game_cross.png) no-repeat center";
 			}
 		}
 		a=checkwin()
