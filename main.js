@@ -1,24 +1,25 @@
 boxes = document.getElementsByClassName("box-element");
-l =	  [ "0","0","0","0","0","0","0","0","0" ];
+// This is the tictactoe board in 2D form
+l = [ "0","0","0","0","0","0","0","0","0" ];
 //1:"X", 2:"O"
 name1="player1";
 name2="player2";
 symb = [0,"X","O"];
 
-var player = "0";
-var opponent = "0";
+let player = "0";
+let opponent = "0";
 
-var game=false;
-var check=false;
-var move=1;
-var mode=-1;	//0:2player,	1:1player
+let game=false;
+let check=false;
+let move=1;
+let mode=-1;	//0:2player,	1:1player
 
 function select(i){
 	sltd = "cyan 0px 0px 3px";
 	usltd = "#555555 0px 0px 3px"
-	var ele = document.getElementById("t"+i);
+	const ele = document.getElementById("t"+i);
 	ele.style.boxShadow = sltd;
-	var s1,u1,u2;
+	let s1,u1,u2;
 	switch(i){
 		case 1:
 		s1="t4";u1="t2";u2="t3";
@@ -71,7 +72,7 @@ function begin(k){
 		}
 		if (document.getElementById("compfirst").checked){
 			check = true;
-			var n = Math.floor(Math.random() * l.length);
+			let n = Math.floor(Math.random() * l.length);
 			l[n] = opponent;
 			if (opponent=="O"){
 				boxes[n].style.background = "url(game_dot.png) no-repeat center";
@@ -155,7 +156,7 @@ function playmove(x){
 			//opponent"s turn
 			l[x]=opponent;
 		}
-		for (var i=0;i<9;i++){
+		for (let i=0;i<9;i++){
 			if (l[i]=="O"){
 				boxes[i].style.background = "url(game_dot.png) no-repeat center";
 			}
@@ -179,16 +180,16 @@ function playmove(x){
 
 function getval(isPlayer,player,opponent){
 	if (isPlayer){
-		var turn=player;
+		let turn=player;
 	}
 	else{
-		var turn=opponent;
+		let turn=opponent;
 	}
-	var val=-1;
+	let val=-1;
 	for (var z=0; z<9; z=z+1){
 		if (l[z]=="0"){
 			l[z]=turn;
-			var n=checkwin();
+			const n=checkwin();
 			if (n==player){
 				l[z]="0";
 				return 1;
@@ -218,34 +219,21 @@ function getval(isPlayer,player,opponent){
 }
 
 function best_move(player,opponent){
-	/*if (move<2){
-		if (l[4]=='0'){
-			return 4;
-		}
-	}
-	if (move==3 && l[4]==opponent && !check){
-		if((l[0]==player && l[8]==opponent) || (l[0]==opponent && l[8]==player)){
-			return 2;
-		}
-		if((l[2]==player && l[6]==opponent) || (l[2]==opponent && l[6]==player)){
-			return 0;
-		}
-	}*/
 	var turn=player;
 	var val=10000;
 	var pos=-1;
-	for (var i=0;i<9;i++){
+	for (let i=0;i<9;i++){
 		if (l[i]=="0"){
 			if (pos==-1){
 				pos=i;
 			}
 			l[i]=turn;
-			var n=checkwin();
+			const n=checkwin();
 			if (n==player){
 				l[i]="0";
 				return i;
 			}
-			var k = getval(false,player,opponent);
+			const k = getval(false,player,opponent);
 			if (k<val){
 				pos=i;
 				val=k;
